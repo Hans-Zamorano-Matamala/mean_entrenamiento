@@ -1,0 +1,26 @@
+añadiré a medida que necesite las dependencias, en un estado final debiese quedar así:
+
+{
+  "name": "mean2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+   5 requerido al crear login "bcrypt-nodejs":"0.0.3", cifrador (sera usado en la pass del usario)
+   4 declarado junto a express, aun no usado "body-parser": "^1.18.3", parsear json a objetos
+   8 al subir imagen de usuario "connect-multiparty": "^2.1.0", recibir ficheros con node usando protocolo http
+   3, para escuchar en el puerto "express": "^4.16.3", framework para api rest principalmente
+   6 al crear el servicio de jwt luego de crear el login "jwt-simple" : "^0.5.1", autenticación con tokens
+   7 requerido para obtener fechas y usarlas para expirar los tokens "moment": "^2.17.1", ???
+   1, en crear conexión "mongoose": "^4.7.4", orm para trabajar con mongoDB
+    "mongoose-pagination": "^1.0.0" autodescriptivo (?)
+  },
+  "devDependencies": {
+  2, en lanzar aplicación en scripts "nodemon": "^1.11.0"  --monitoriza cambios en los archivos
+  }
+}
