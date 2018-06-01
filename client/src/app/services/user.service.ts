@@ -65,7 +65,6 @@ this.myObservable().pipe(map(data => {}))
 
   getIdentity(){
     let identity = JSON.parse(localStorage.getItem('identity'));
-    console.log("obtiene id: "+identity);
     if (identity != "undefined"){
       //this.identity = identity;
       return identity;
@@ -75,7 +74,6 @@ this.myObservable().pipe(map(data => {}))
   }
   getToken(){
     let token = localStorage.getItem('token');
-    console.log("obtiene token: " + token);
     if (token != "undefined"){
       //this.token = token;
       return token;

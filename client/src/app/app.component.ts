@@ -3,15 +3,16 @@ import { UserService } from './services/user.service';
 import { User } from './models/user';
 import { GLOBAL } from './services/global'
 
+import { Router, ActivatedRoute, Params, Route } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   providers: [UserService]
-  //no necesario(?)
   //styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit{
-  title = 'Mean_entrenamiento';
+  title = 'M.E.A.N.';
   public user: User;
   public user_register: User;
   public identity;
@@ -21,6 +22,9 @@ export class AppComponent  implements OnInit{
   public url: string;
 
   constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+
     private _userService:UserService
   ){
     this.user = new User('','','','','','ROLE_USER','');
@@ -32,8 +36,7 @@ export class AppComponent  implements OnInit{
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
 
-    console.log("carga id: "+this.identity);
-    console.log("carga token: " + this.token);
+    console.log(this.identity);
   }
 
   public onSubmit(){
@@ -91,6 +94,7 @@ export class AppComponent  implements OnInit{
     localStorage.clear(); //con este basta, el resto es para aprendizaje
     this.identity = null;
     this.token = null;
+    this._router.navigate(['/']);
   }
 
 

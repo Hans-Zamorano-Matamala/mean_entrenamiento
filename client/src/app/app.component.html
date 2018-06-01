@@ -1,14 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="identity" style="text-align:center" class ="navigation col-lg-1">
-  <h1>
-    {{ title }}!
+  <h1 class="head-title">
+    <a [routerLink]="['/']">
+      <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+    </a>
+    {{ title }}
   </h1>
+
+
   <nav id="navigation">
       <a href="#">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           Buscar
       </a>
-      <a href="#">
+      <a [routerLink]="['/artistas', 1]" [routerLinkActive]="['actived']">
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           Artistas
       </a>
@@ -17,33 +22,44 @@
           Albums
       </a>
   </nav>
+
+
   <nav id="user_logged">
       <div class="user-image">
-          <img id="image_logged" src="{{url + 'get-image-user/' + identity.image}}" style="width: 50px;"/>
+          <img id="image_logged" src="{{url + 'get-image-user/' + identity.image}}"/>
 
       </div>
+
     <span id="identity_name">
       {{identity.name}}
     </span>
-    <span class="btn btn-warning" (click)="logout()">
-      Cerrar sesión
-    </span>
-    <a [routerLink]="['/mis-datos']">
+
+    <a [routerLink]="['/mis-datos']" [routerLinkActive]="['actived']" >
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
       Mis datos
     </a>
+
+    <a (click)="logout()" class="btn-logout">
+      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+        Salir
+    </a>
   </nav>
+
+
 </div>
 
-<div class="clearfix"></div>
 
 
-<div *ngIf="identity" class="central col-lg-11">
-  <p>Estás logueado en la aplicación</p>
+
+<div [class.hidden]="!identity" class="central col-lg-11">
+
   <router-outlet></router-outlet>
 </div>
 
-<div class="col-lg-12" *ngIf="!identity">
+
+
+
+<div class="col-lg-11" *ngIf="!identity">
     <div class="col-lg-6">
       <h1>Identifícate</h1>
       <div *ngIf="errorMessage">

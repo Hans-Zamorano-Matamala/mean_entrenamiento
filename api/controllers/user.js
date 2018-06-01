@@ -26,8 +26,6 @@ function saveUser(req,res){
 
     var params = req.body;
 
-    console.log(params);
-
     user.name = params.name;
     user.surname = params.surname;
     user.email = params.email;
@@ -144,7 +142,7 @@ function uploadImage(req, res){
             res.status(200).send({message: 'Extensión incorrecta'});
         }
 
-        console.log(file_name);
+        //console.log(file_name);
     }else{
         res.status(200).send({message: 'No has subido ninguna imagen...'});
     }
@@ -153,7 +151,7 @@ function uploadImage(req, res){
 function getImageFile(req,res){
     var imageFile = req.params.imageFile;
     var path_file = './uploads/users/'+imageFile;
-    console.log(fs);
+    //console.log(fs);
     fs.exists(path_file, function(exists){
         if(exists){
             res.sendFile(path.resolve(path_file));
